@@ -17,8 +17,24 @@ class ViewController: UIViewController {
     
     @IBAction func setCityTapped(sender: UIButton) {
         print("City Button Tapped")
+        openCityAlert()
     }
     
+    func openCityAlert() {
+        let alert = UIAlertController(title: "City", message: "Enter city name", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+        
+        alert.addAction(cancel)
+        
+        let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action: UIAlertAction) -> Void in
+            print("OK")
+        }
+        
+        alert.addAction(ok)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
     
     
     override func viewDidLoad() {
