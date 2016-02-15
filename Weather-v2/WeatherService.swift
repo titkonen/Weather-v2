@@ -22,12 +22,24 @@ class WeatherService {
         // wait.....
         // process data
         
+        
+        
+        let path = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=44db6a862fba0b067b1930da0d769e98"
+        let url = NSURL(string: path)
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithURL(url!) { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+            print(">>>>> \(data)")
+        }
+        
+        task.resume()
+        
+        /*
         let weather = Weather(cityName: city, temp: 237.12, description: "A nice day")
         
         if delegate != nil {
             delegate?.setWeather(weather)
         }
-        
+        */
     }
     
     
