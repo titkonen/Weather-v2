@@ -17,14 +17,12 @@ class WeatherService {
     var delegate: WeatherServiceDelegate?
     
     func getWeather(city: String) {
-        print("Weather Service city: \(city)")
-        // request weather data
-        // wait.....
-        // process data
+//        print("Weather Service city: \(city)")
+        
+        let cityEscaped = city.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())
         
         
-        
-        let path = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=44db6a862fba0b067b1930da0d769e98"
+        let path = "http://api.openweathermap.org/data/2.5/weather?q=\(cityEscaped!)&appid=44db6a862fba0b067b1930da0d769e98"
         let url = NSURL(string: path)
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url!) { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
